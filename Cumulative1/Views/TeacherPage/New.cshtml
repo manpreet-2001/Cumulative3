@@ -1,0 +1,113 @@
+﻿@model Cumulative1.Models.Teacher
+
+<style>
+   
+
+    .form-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 30px 40px;
+        max-width: 600px;
+        width: 100%;
+        margin: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #555555;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 6px;
+        font-size: 14px;
+        background-color: #fafafa;
+        transition: border-color 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        margin-top: 0;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="form-container">
+    <h2>Add New Teacher</h2>
+
+    <form method="post" action="/TeacherPage/Create">
+        <div class="form-group">
+            <label for="TeacherFname">First Name</label>
+            <input type="text" id="TeacherFname" name="TeacherFname" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="TeacherLname">Last Name</label>
+            <input type="text" id="TeacherLname" name="TeacherLname" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="EmployeeNumber">Employee Number</label>
+            <input type="text" id="EmployeeNumber" name="EmployeeNumber" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="Hire">Hire Date</label>
+            <input type="date" id="Hire" name="Hire" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="Salary">Salary</label>
+            <input type="text" id="Salary" name="Salary" class="form-control" required />
+        </div>
+        <div class="actions">
+            <button type="submit" class="btn">Create Teacher</button>
+            <a href="/TeacherPage/List" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>

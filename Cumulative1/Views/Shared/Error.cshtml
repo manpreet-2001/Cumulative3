@@ -1,0 +1,38 @@
+﻿@model ErrorViewModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">An error occurred.</h1>
+<h2 class="text-danger">We’re sorry, but something went wrong.</h2>
+
+@if (Model != null && Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+else
+{
+    <p>
+        <strong>Request ID:</strong> Not available.
+    </p>
+}
+}
+
+<h3>What can you do?</h3>
+<p>You can try the following actions:</p>
+<ul>
+    <li><a href="/">Go back to the home page</a>.</li>
+    <li>Contact our support team if the issue persists.</li>
+</ul>
+
+<h4>Development Mode</h4>
+<p>
+    For more detailed information about the error, enable <strong>Development</strong> mode by setting the
+    <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>.
+</p>
+<p>
+    <strong>Note:</strong> Development mode should only be enabled in safe environments, as it may display sensitive information.
+</p>

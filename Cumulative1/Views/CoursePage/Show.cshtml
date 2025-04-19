@@ -1,0 +1,127 @@
+﻿@model Cumulative1.Models.Course
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f7f9fc;
+        margin: 0;
+        padding: 30px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .course-details {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .course-details li {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            color: #333;
+        }
+
+            .course-details li:hover {
+                background-color: #e2e7f1;
+                transform: scale(1.02);
+                transition: all 0.3s ease-in-out;
+            }
+
+            .course-details li span {
+                font-weight: 600;
+                color: #007bff;
+            }
+
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        background-color: #007bff;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 8px;
+        margin-top: 30px;
+        transition: all 0.3s ease;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+    .footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #777;
+    }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            .footer a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="container">
+    <h1>Course Details</h1>
+
+    <ul class="course-details">
+        <li>
+            <div><span>Course Name:</span> @Model.Cname</div>
+        </li>
+        <li>
+            <div><span>Course Code:</span> @Model.Ccode</div>
+        </li>
+        <li>
+            <div><span>Teacher ID:</span> @Model.Tid</div>
+        </li>
+        <li>
+            <div><span>Start Date:</span> @Model.startdate.ToString("yyyy-MM-dd")</div>
+        </li>
+        <li>
+            <div><span>Finish Date:</span> @Model.finishdate.ToString("yyyy-MM-dd")</div>
+        </li>
+    </ul>
+
+    <a href="/CoursePage/DeleteConfirm" class="btn">Delete</a>
+    <br />
+    <a href="/CoursePage/Edit/@Model.CId" class="btn">Update</a>
+
+
+    <div class="footer">
+        <p>&copy; 2024 Course Management System</p>
+        <p><a href="/Home/Contact">Contact Us</a></p>
+    </div>
+</div>

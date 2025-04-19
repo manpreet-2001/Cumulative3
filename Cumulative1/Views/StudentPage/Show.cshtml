@@ -1,0 +1,123 @@
+﻿@model Cumulative1.Models.Student
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        font-size: 32px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .student-detail-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .student-detail-item {
+        background-color: #ffffff;
+        padding: 18px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid #007bff;
+        transition: all 0.3s ease;
+    }
+
+        .student-detail-item:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #0056b3;
+        }
+
+        .student-detail-item h3 {
+            font-size: 20px;
+            color: #007bff;
+            margin-bottom: 12px;
+        }
+
+        .student-detail-item p {
+            font-size: 16px;
+            color: #333;
+            margin: 4px 0;
+        }
+
+            .student-detail-item p span {
+                font-weight: 600;
+                color: #555;
+            }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .btn-action {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .btn-action:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+
+    .footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #777;
+    }
+</style>
+
+<div class="container">
+    <h1>Student Details</h1>
+
+    <ul class="student-detail-list">
+        <li class="student-detail-item">
+            <h3>Student ID: <span>@Model.Id</span></h3>
+            <p><span>First Name:</span> @Model.SFName</p>
+            <p><span>Last Name:</span> @Model.SLName</p>
+            <p><span>Student Number:</span> @Model.SNumber</p>
+            <p><span>Enrollment Date:</span> @Model.EnrollDate.ToString("yyyy-MM-dd")</p>
+        </li>
+    </ul>
+
+    <div class="btn-group">
+        <a href="/StudentPage/Edit/@Model.Id" class="btn-action">Update</a>
+        <a href="/StudentPage/DeleteConfirm" class="btn-action">Delete</a>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Student Management System</p>
+    </div>
+</div>

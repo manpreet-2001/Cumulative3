@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Cumulative1.Models.Student>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #2c3e50;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .btn-add {
+        display: inline-block;
+        padding: 12px 20px;
+        margin-bottom: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .btn-add:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+
+    .student-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .student-item {
+        background-color: #eaf2fb;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        font-size: 18px;
+        color: #34495e;
+        transition: all 0.3s ease;
+    }
+
+        .student-item a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
+
+            .student-item a:hover {
+                text-decoration: underline;
+                color: #1abc9c;
+            }
+
+        .student-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+</style>
+
+<div class="container">
+    <h1>Student List</h1>
+
+    <a href="/StudentPage/New" class="btn-add">+ Add Student</a>
+
+    <div class="student-list">
+        @foreach (Cumulative1.Models.Student Student in Model)
+        {
+            <div class="student-item">
+                <a href="/StudentPage/Show/@Student.Id">
+                    @Student.SFName @Student.SLName
+                </a>
+            </div>
+        }
+    </div>
+</div>

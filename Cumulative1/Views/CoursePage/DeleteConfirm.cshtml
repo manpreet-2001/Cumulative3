@@ -1,0 +1,96 @@
+﻿@model Cumulative1.Models.Course
+
+<!-- Add some inline CSS or link to an external stylesheet -->
+<style>
+    /* Basic reset for the body */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+    }
+
+    #containershow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #fff;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    nav {
+        margin-bottom: 20px;
+    }
+
+    .navlink {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #fff;
+        padding: 8px 15px;
+        border-radius: 5px;
+        border: 1px solid #007bff;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navlink:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    h2 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: #555;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        margin-top: 20px;
+    }
+
+    button {
+        background-color: #ff4500;
+        color: white;
+        font-size: 16px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #e03e00;
+    }
+
+</style>
+
+<!-- Page Content -->
+<div id="containershow">
+    <nav>
+        <a class="navlink" href="/CoursePage/Show/@Model.CId">Cancel</a>
+    </nav>
+    <h2>Are you sure you want to delete @Model.Cname?</h2>
+    <p>This action cannot be undone.</p>
+    <form method="POST" action="/CoursePage/Delete/@Model.CId">
+        <button class="btn-warning">
+            Confirm Delete
+        </button>
+    </form>
+</div>

@@ -1,0 +1,139 @@
+﻿@model Cumulative1.Models.TeacherWithCoursesViewModel
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 850px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #2c3e50;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .teacher-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+    }
+
+        .teacher-details div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            font-size: 16px;
+            color: #34495e;
+        }
+
+        .teacher-details span.label {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+    .courses-section {
+        background-color: #f0f8ff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+        .courses-section h2 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+    .course-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .course-list li {
+            background-color: #d6eaff;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #34495e;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            .course-list li:last-child {
+                margin-bottom: 0;
+            }
+
+    .no-courses {
+        font-size: 16px;
+        color: #777;
+        text-align: center;
+    }
+
+</style>
+
+<div class="container">
+    <h1>Teacher and Courses Details</h1>
+
+    <div class="teacher-details">
+        <div>
+            <span class="label">Teacher Name</span>
+            <span>@Model.Teacher.TeacherFName @Model.Teacher.TeacherLName</span>
+        </div>
+        <div>
+            <span class="label">Hire Date</span>
+            <span>@Model.Teacher.Hire.ToString("yyyy-MM-dd")</span>
+        </div>
+        <div>
+            <span class="label">Employee Number</span>
+            <span>@Model.Teacher.EmployeeNumber</span>
+        </div>
+        <div>
+            <span class="label">Salary</span>
+            <span>$@Model.Teacher.Salary.ToString()</span>
+        </div>
+    </div>
+
+    <div class="courses-section">
+        <h2>Courses Taught</h2>
+        @if (Model.Courses != null && Model.Courses.Any())
+        {
+            <ul class="course-list">
+                @foreach (var course in Model.Courses)
+                {
+                    <li>@course</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <div class="no-courses">No courses found</div>
+        }
+    </div>
+    <div>
+        <form method="get" action="/TeacherPage/DeleteConfirm/@Model.Teacher.TeacherId">
+            <button style="background:blue" type="submit" class="btn">Delete Teacher</button>
+        </form>
+    </div>
+</div>
